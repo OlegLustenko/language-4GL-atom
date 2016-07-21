@@ -1,0 +1,97 @@
+fileTypes: [
+  "4gl"
+]
+name: "4GL"
+patterns: [
+  {
+    begin: "\\{"
+    end: "\\}"
+    name: "comment.block.source.4GL"
+    patterns: [
+      {
+        match: "."
+      }
+    ]
+  }
+  {
+    comment: "A comment starting with '#'"
+    match: "#.*$"
+    name: "comment.number-sign.source.4GL"
+  }
+  {
+    comment: "Single quoted string"
+    match: "('(?:\\\\'|.)*?')"
+    name: "string.single.source.4GL"
+  }
+  {
+    comment: "Double quoted string"
+    match: "(\\\"(?:\\\\\"|.)*?\\\")"
+    name: "string.double.source.4GL"
+  }
+  {
+    comment: "Operators"
+    match: "(?i)(=|!=|\\+|-|/|<|>|,|(\\s(or|and|is|mod|not|initialize)(?=(\\s|$)))|((\\s|^)set(?=\\s)))"
+    name: "keyword.operator.source.4GL"
+  }
+  {
+    comment: "Constants provided by de language"
+    match: "(?i)(dirty read|null|true|false|notfound)"
+    name: "constant.language.source.4GL"
+  }
+  {
+    comment: "Variables provided by de language"
+    match: "(?i)(isolation|today|\\sstatus|pageno)"
+    name: "variable.language.source.4GL"
+  }
+  {
+    comment: "Control"
+    match: "(?i)((\\s|^)case(\\s*|$)|continue (.*)|when |otherwise|end case|while |end while|(\\s|^)for(\\s|$)|foreach | into |end for(each)?|(\\s|^)if(?=\\s+|$)|(\\s+|^)then(\\s+|$)|(\\s+|^)else(\\s+|$)|end if|return(\\s+|$)|exit (.*))"
+    name: "keyword.control.source.4GL"
+  }
+  {
+    comment: "Keywords"
+    match: "(?i)( between |call(?=\\s+|$)| clipped|(\\s|^)close\\s+(form|window)*|(\\s|^)create\\s+(temp\\s+)?(table|index)(?=\\s+|$)|database |\\sreturning |declare |delete(?=\\s|$)|display\\s+|((\\s|^)drop\\s+(table|index)(\\s|$))|((\\s|^)fetch((\\s+|$)|(\\s+(first|last)\\s+)))|(\\s|^)from(\\s+|$)|(\\s+|^)free\\s+|group by\\s|(\\s+|^)(desc|asc)(\\s+|$)|(\\s|^)insert\\s+into(\\s+|$)|((scroll)* cursor(?=\\s)(\\swith hold)*)|((top|right|bottom|left)\\s+margin)|page length|(\\s|^)open\\s+(form|window)*|(\\s|^)prepare |(^|\\s)prompt\\s|(^|\\s)input by name(\\s|$)|((start|finish)\\s+report)|(\\s|^)select(\\s+|$)| spaces|(\\s|^)update(\\s+|$)|(\\s|^)where(\\s+|$)|(\\s|^)output(?=\\s|$)|(?<=\\s)to(?=\\s|$)|order by|format( |$)|(first\\s+)*page header|before group of|on (every|last) row|after group of| using |begin\\s+work|commit\\s+work|rollback\\s+work|(\\s+|^)values(\\s+|$)|((\\s|^)whenever\\s+(any\\s+)?error\\s+(continue|stop)(\\s|$))|(\\s|^)run\\s+|end input)"
+    name: "keyword.other.source.4GL"
+  }
+  {
+    comment: "Constant numeric"
+    match: "(?<!\\w)((0(x|X)[0-9a-fA-F]+)|([0-9]+(\\.[0-9]+)?))"
+    name: "constant.numeric.source.4GL"
+  }
+  {
+    captures:
+      "1":
+        name: "storage.type.function.source.4GL"
+      "2":
+        name: "entity.name.function.source.4GL"
+      "3":
+        name: "variable.parameter.function.source.4GL"
+    comment: "Functions definitions"
+    match: "(?i)(?<!\\w\\s)(function|report)\\s+(.*)\\s*\\((.*)\\)"
+    name: "meta.function.source.4GL"
+  }
+  {
+    captures:
+      "1":
+        name: "storage.type.function.source.4GL"
+    comment: "Main function definition"
+    match: "(?i)(main)(\\s*|$)"
+    name: "meta.function.source.4GL"
+  }
+  {
+    comment: "Functions definitions"
+    match: "(?i)(end function|end main|end report)(\\s*|$)"
+    name: "storage.type.function.source.4GL"
+  }
+  {
+    comment: "Storage types"
+    match: "(?i)(\\schar(?=[\\s\\(,$]))|(\\sdate(\\s+|$)|decimal|define | smallint| integer| float|let | like |(end)* record|(((^|\\s+)|(end\\s+))globals))"
+    name: "storage.type.source.4GL"
+  }
+  {
+    comment: "Some functions"
+    match: "(?i)((?<=\\s)(length|day|month|year|p_open|p_close)(?=\\s*\\(.*?\\)))"
+    name: "support.function.source.4GL"
+  }
+]
+scopeName: "source.4GL"

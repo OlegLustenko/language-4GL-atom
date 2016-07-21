@@ -1,0 +1,125 @@
+".source.4GL":
+  case:
+    prefix: "case"
+    body: '''
+      
+      case ${1:variable}
+      	when ${2:value}
+      		${3:# sentences...}
+      	otherwise
+      		${4:# sentences...}
+      end case
+      
+      
+    '''
+  database:
+    prefix: "database"
+    body: '''
+      
+      database ${1:base}
+      
+      main
+      ${2}
+      end main
+      
+    '''
+  "declare-foreach":
+    prefix: "declaref"
+    body: '''
+      
+      declare ${1:cursor_name} cursor with hold for
+      	${2:sql sentence}
+      
+      foreach $1 into ${3:variable1, variable2, ...}
+      	${4:sentences...}
+      end foreach
+      
+      
+      
+    '''
+  declare:
+    prefix: "declare"
+    body: '''
+      
+      declare ${1:cursor_name} cursor for
+      
+      
+    '''
+  foreach:
+    prefix: "foreach"
+    body: '''
+      
+      foreach ${1:cursor_name} into ${2:variable1, variable2, ...}
+      	${3}
+      end foreach
+      
+      
+      
+    '''
+  function:
+    prefix: "function"
+    body: '''
+      
+      {
+      	${2:Function description...}
+      }
+      function ${1:function_name}(${3:param1, param2, paramn})
+      ${3/\\s*([a-zA-Z0-9_]+)(,*)/define $1\\n/g}
+      	${4:# sentences...}
+      end function
+      
+    '''
+  "if-else":
+    prefix: "ifelse"
+    body: '''
+      
+      if ${1:condition} then
+      	${2:# sentences...}
+      else
+      	${3:# sentences...}
+      end if
+      
+      
+    '''
+  if:
+    prefix: "if"
+    body: '''
+      
+      if ${1:condition} then
+      	${2:# sentences...}
+      end if
+      
+      
+    '''
+  select:
+    prefix: "select"
+    body: '''
+      
+      select
+      	${1:*}
+      from
+      	${2:table}
+      where
+      	
+      
+    '''
+  whenever:
+    prefix: "whenever"
+    body: '''
+      
+      whenever error continue
+      	${1:# sentences...}
+      whenever error stop
+      
+    '''
+  while:
+    prefix: "while"
+    body: '''
+      
+      while ${1:condition}
+      	${2:sentences...}
+      end while
+      
+      
+      
+    '''
