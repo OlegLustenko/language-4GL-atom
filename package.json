@@ -1,14 +1,12 @@
 {
   "name": "language-4gl",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Language 4GL",
-  "keywords": [
-  ],
+  "keywords": [],
   "repository": "https://github.com/OlegLustenko/language-4GL-atom.git",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
