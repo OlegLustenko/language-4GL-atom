@@ -2,7 +2,7 @@
 
 4GL language for atom
 
-The related code looks like this:
+##The related code looks like this:
 ![alt tag](https://github.com/OlegLustenko/language-4GL-atom/blob/master/docs/code-view.png)
 
 
