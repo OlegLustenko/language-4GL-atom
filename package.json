@@ -1,10 +1,10 @@
 {
   "name": "language-4gl",
   "version": "0.0.0",
-  "description": "A short description of your package",
+  "description": "Language 4GL",
   "keywords": [
   ],
-  "repository": "https://github.com/atom/language-4gl",
+  "repository": "https://github.com/OlegLustenko/language-4GL-atom.git",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
